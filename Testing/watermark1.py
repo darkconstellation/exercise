@@ -4,12 +4,14 @@ from PIL import ImageDraw
 import matplotlib.pyplot as plt
 
 
-file = 'C:\MDT\images\ktp.jpeg'
+file = 'images\ktp.jpeg'
 
 image = Image.open(file)
+p, l = image.size
+print('Resolusi gambar: %s x %s '%(p, l) )
 draw = ImageDraw.Draw(image)
 font = ImageFont.truetype("arial.ttf", 50)
-draw.text((0, 0), "puppy", (0, 0, 0), font=font)
+draw.text((p // 2 , l // 1.2), "Watermark\nTesting", (128, 128, 128), font=font)
 image.show()
 # plt.imshow(image)
 plt.show()

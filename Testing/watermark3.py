@@ -5,13 +5,13 @@ import matplotlib.image as mpimg
 # %matplotlib inline
 from skimage import data,filters
 
-image = mpimg.imread('C:\MDT\images\ktp.jpeg')
+image = mpimg.imread('images\ktp.jpeg')
 # image = data.coins()   # ... or any other NumPy array!
 plot1 = plt.figure(1)
-plt.imshow(image, cmap='gray')
+plt.imshow(image)
 
 plot1 = plt.figure(2)
 edges = filters.sobel(image)  
-plt.imshow(edges, cmap='gray')
+plt.imshow(edges)
 
 plt.show()

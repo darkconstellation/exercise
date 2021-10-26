@@ -1,3 +1,4 @@
+#pip install Pillow
 import os,sys
 from PIL import Image, ImageEnhance
 import matplotlib.pyplot as plt
@@ -17,7 +18,9 @@ if __name__ == "__main__":
     opts = [opt for opt in sys.argv[1:] if opt.startswith("-")]
     args = [arg for arg in sys.argv[1:] if not arg.startswith("-")]
     python_file_path = os.path.dirname(os.path.realpath(__file__))
-    file = 'C:\MDT\images\ktp.jpeg'
+    
+    file = input('Masukkan file gambar: ')
+    file = os.path.join(python_file_path,'images',file)
 
     if "-contrast" in opts:
         image_original = Image.open(file)
@@ -26,9 +29,10 @@ if __name__ == "__main__":
         
         image1 = contrast(image_original, 1.5)
         plt.figure('After Contrast')
-        plt.imshow(image1, cmap='gray')
+        plt.imshow(image1)
 
-        image2 = contrast(image1, 1.5)
+        image2 = contrast(image1, 1.2)
         plt.figure('After Brightness')
-        plt.imshow(image2, cmap='gray')
+        plt.imshow(image2)
+
         plt.show()
